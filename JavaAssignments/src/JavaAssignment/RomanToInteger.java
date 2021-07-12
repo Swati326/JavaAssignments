@@ -1,15 +1,11 @@
 package JavaAssignment;
-
 import java.util.*;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class RomanToInteger {
 
-	public static void main(String x[]) {
-
+	 public static void main(String x[]) {
 		int result = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Roman");
@@ -23,21 +19,27 @@ public class RomanToInteger {
 		map.put('C', 100);
 		map.put('D', 500);
 		map.put('M', 1000);
-		for (int i = 0; i < ch.length; i++) {
-			int a = map.get(ch[i]);
-			if (i + 1 < ch.length) {
-				int b = map.get(ch[i + 1]);
+		for (int i = 0; i < ch.length; i++) 
+		{
+		int  first_number= map.get(ch[i]);
+			if (i + 1 < ch.length) 
+			{
+				int second_number = map.get(ch[i + 1]);
 				{
-					if (a >= b) {
-						result = result + a;
-					} else {
-						result = result - a;
+					if (first_number >= second_number) 
+					{
+					result = result + first_number;
+					} 
+					else 
+					{
+						result = result - first_number;
 					}
 				}
-			} else {
-				result = result + a;
 			}
-
+			else 
+			{
+				result = result + first_number;
+			}
 		}
 		System.out.print(result);
 	}
