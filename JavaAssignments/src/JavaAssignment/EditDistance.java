@@ -1,29 +1,41 @@
 package JavaAssignment;
+
+import java.util.Scanner;
+
 public class EditDistance {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int i,j,count=0,temp;
-		String s1="horse";
-		String s2="ros";
-		char ch[]=s1.toCharArray();
-		char ch1[]=s2.toCharArray();
-		//replace 'h' with 'r'
-		temp=ch[0];
-		ch[0]=ch1[0];	
-		count++;
-		//remove 'r'
-		for(i=0;i<ch.length;i++)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter first word");
+		String string1=sc.nextLine();
+		System.out.println("enter second word");
+		String string2=sc.nextLine();
+		int[][]d=new int[string1.length()+1][string2.length()+1];
+		d[0][0]=0;
+		for(int i=1;i<=string1.length();i++)
 		{
-			ch[2]=ch[3];
+			d[i][0]=i;
 		}
-		count++;
-		//remove 'e'
-		for(i=0;i<ch.length-2;i++)
+		for(int j=1;j<=string2.length();j++)
 		{
-			System.out.print(ch[i]);
+			d[j][0]=j;
 		}
-		count++;
-		System.out.println("\ncount is:"+count);
+		for(int i=1;i<=string1.length();i++) 
+		{	
+		for(int j=1;j<=string2.length();j++)
+		{
+			if(string1.charAt(i-1)==string2.charAt(j-1))
+			{
+				d[i][j]=d[i-1][j-1];
+			}
+			else
+			{
+				d[i][j]=Math.min(Math.min(d[i-1][j],d[i][j-1]), d[i-1][j-1])+1;
+			}	
 		}
 	}
+    System.out.println(d[string1.length()][string2.length()]);
+	}
+
+}

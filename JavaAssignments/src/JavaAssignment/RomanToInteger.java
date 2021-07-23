@@ -8,10 +8,10 @@ public class RomanToInteger {
 	 public static void main(String x[]) {
 		int result = 0;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Roman");
+		System.out.println("Enter Roman");  //take the input from user
 		String str = sc.nextLine();
-		char ch[] = str.toCharArray();
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		char ch[] = str.toCharArray(); //String converted into char 
+		Map<Character, Integer> map = new HashMap<Character, Integer>(); //Map is used key and value to assign numbers to roman
 		map.put('I', 1);
 		map.put('V', 5);
 		map.put('X', 10);

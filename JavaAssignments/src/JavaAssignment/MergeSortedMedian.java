@@ -9,6 +9,7 @@ public class MergeSortedMedian {
 		double i,j,temp;
 		double a[]=new double[10];
 		Scanner sc=new Scanner(System.in);
+		//took two arrays for find the median.here array type is double because the median can be float
 		System.out.println("enter size of 1st array");
 		double n=sc.nextDouble();
 		System.out.println("enter size of 2nd array");
@@ -24,6 +25,7 @@ public class MergeSortedMedian {
 		{
 			b[(int) i]=sc.nextInt();
 		}
+		//merge array 
 		double m[]=new double[(int) (n+n1)];
 		System.out.println("After Merging");
 		j=0;
@@ -41,6 +43,7 @@ public class MergeSortedMedian {
 		{
 			System.out.println(m[(int) j]);
 		}
+		//sorted array to find median
 		System.out.println("Ascending order");
 		for(i=0;i<n+n1;i++)
 		{
@@ -55,6 +58,11 @@ public class MergeSortedMedian {
 		}
 		System.out.println(m[(int) i]);
 		}
+		//to find the median.. first we need to know how many integer consist in array
+		//if size of array or total no.of integer present in array is odd then we can get result directly as median=n+1/2.
+		//here n means total no of integer present in array
+		//and if size of array or total no.of integer present in array is Even then we need need find middle two integer.
+		//then add this two integer and divide it by 2 to find appropriate median.
 		double median;
 		if(m.length%2!=0)
 		{
@@ -67,7 +75,7 @@ public class MergeSortedMedian {
 		
 			median=(m[v]+m[u])/2;
 		}
-		System.out.println("median is:"+median);
+		System.out.println("median is:"+median);//display the output
 	}
 	
 	}
